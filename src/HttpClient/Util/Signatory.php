@@ -25,7 +25,7 @@ final class Signatory
 
         $ok = \openssl_verify($content, $signature, $publicKeyId);
 
-        if ($ok === 0) {
+        if ($ok !== 1) {
             throw new ValidationFailedException((string)\openssl_error_string());
         }
     }
